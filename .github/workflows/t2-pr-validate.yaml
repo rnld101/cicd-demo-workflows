@@ -1,0 +1,19 @@
+# Workflow name shown in GitHub Actions
+name: t2-pr-validate   
+
+# Triggers when a PR targets the "main" branch
+on:
+  pull_request:
+    branches: 
+      - main  
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest   # Uses a Linux runner
+
+    steps:
+      # Checks out the PR code into the runner
+      - uses: actions/checkout@v4   
+
+      # Simple command to confirm the workflow runs
+      - run: echo "PR Validation"   
