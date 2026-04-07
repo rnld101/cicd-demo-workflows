@@ -12,6 +12,15 @@ jobs:
     runs-on: ubuntu-latest   # Uses a Linux runner
 
     steps:
+      # Use expressions and context variables to show details of PR
+      - name: Show PR metadata
+        run: |
+          echo "========== PR metadata =========="
+          echo "Triggered by: ${{ github.actor }}"
+          echo "PR Title: ${{ github.event.pull_request.title }}"
+          echo "PR Number: ${{ github.event.pull_request.number }}"
+          echo "================================="
+
       # Checks out the PR code into the runner
       - uses: actions/checkout@v4   
 
