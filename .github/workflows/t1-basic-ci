@@ -1,0 +1,22 @@
+# Name of the workflow (shown in GitHub Actions UI)
+name: t1-basic-ci 
+
+# Triggers this workflow only when code is pushed to the "main" branch
+on:
+  push:
+    branches: [main]   
+
+jobs:
+  # Job ID (can be anything, used to group steps)
+  build:  
+    # Specifies the runner environment (latest Ubuntu VM) 
+    runs-on: ubuntu-latest   
+
+    steps:
+      # Pulls your repository code into the runner so it can be used
+      - name: Checkout
+        uses: actions/checkout@v4   
+
+      # Runs a simple shell command to print a message in logs
+      - name: Print Info
+        run: echo "CI Triggered"   
